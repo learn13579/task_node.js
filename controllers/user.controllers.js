@@ -6,9 +6,9 @@ const {ErrorsStatus: {status201}} = require('../errorsCustom');
 module.exports = {
     getUserById: async (req, res, next) => {
         try {
-            const {ourUser} = req;
+            const {ourUser: {_id, id_type}} = req;
 
-            res.json(ourUser);
+            res.json(_id, id_type);
         } catch (e) {
             next(e);
         }
